@@ -3,15 +3,20 @@ from collections import Counter
 import string
 
 BASE_DIR = Path(__file__).parent
+path_to_file = BASE_DIR / "text.txt"
 
-path_to_file = BASE_DIR.parent / "files" / "text.txt"
+# count lines
 
-print(path_to_file)
-words = []
-word_count = {}
+with open(path_to_file, "r", encoding = "utf-8") as file:
+    count = sum(len(line.split() for line in file if line.strip()))
 
 with open(path_to_file,"r",encoding="utf-8") as file:
     count = sum(1 for line in file if line.strip())
+
+# count words
+
+words = []
+word_count = {}
 
 with open(path_to_file,"r",encoding="utf-8") as file:
     word_count = sum(len(line.split()) for line in file)
@@ -29,11 +34,10 @@ with open(path_to_file, "r", encoding = "utf-8") as file:
 print("Amount of lines:", count)
 print("Amount of words:", word_count)
 
-with open (path_to_file, "r", encodign = "utf-8") as file:
+with open (path_to_file, "r", encoding = "utf-8") as file:
     for line in file:
         for word in line.lower().strip():
-            words_count[word] = word_count.get(word,0) + 1
-        
+            word_count[word] = word_count.get(word,0) + 1
 
 most_word = max(word_count, key=word_count.get)
             

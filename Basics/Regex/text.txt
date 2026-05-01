@@ -1,0 +1,1 @@
+Dobrze — potraktuj to jak „rozruch systemu”, a nie test wiedzy. Każde zadanie uderza w coś, czego już się uczyłaś: pliki, CSV, słowniki, operacje na systemie, logika.
